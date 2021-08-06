@@ -34,6 +34,7 @@ content/upgrade
 # Plugins and translations coming from composer
 content/plugins/*
 !content/plugins/.gitkeep
+!content/plugins/clickpublish-*
 content/mu-plugins/*
 !content/mu-plugins/register-theme-directory.php
 !content/mu-plugins/bedrock-autoloader.php
