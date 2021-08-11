@@ -6,7 +6,7 @@
  * @Author: Timi Wahalahti
  * @Date:   2021-08-03 22:34:05
  * @Last Modified by:   Timi Wahalahti
- * @Last Modified time: 2021-08-05 21:36:13
+ * @Last Modified time: 2021-08-11 19:06:49
  *
  * @package clickpublish
  */
@@ -101,13 +101,17 @@ function user_profile_edit_add_fields() {
   ] );
 } // end user_profile_edit_add_fields
 
-add_action( 'cmb2_save_field_clickpublish_feed_urls', __NAMESPACE__ . '\maybe_start_user_challenge', 10, 3 );
-function maybe_start_user_challenge( $updated, $action, $field ) {
+add_action( 'cmb2_save_field_clickpublish_feed_urls', __NAMESPACE__ . '\maybe_start_stop_user_challenge', 10, 3 );
+function maybe_start_stop_user_challenge( $updated, $action, $field ) {
   $user_id = get_current_user_id();
 
   $not_started = clickpublish_user_has_not_started_challenge( $user_id );
   if ( $not_started ) {
     update_user_meta( $user_id, 'clickpublish_challenge_last_started', wp_date( 'Y-m-d H:i:s' ) );
+  }
+
+  if ( 'removed' === $action ) {
+    clickpublish_reset_user_challenge( $user_id );
   }
 } // end maybe_start_user_challenge
 
