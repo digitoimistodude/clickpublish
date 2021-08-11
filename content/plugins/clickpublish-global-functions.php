@@ -6,7 +6,7 @@
  * @Author: Timi Wahalahti
  * @Date:   2021-08-05 20:40:21
  * @Last Modified by:   Timi Wahalahti
- * @Last Modified time: 2021-08-05 22:51:32
+ * @Last Modified time: 2021-08-11 19:19:04
  * @package clickpublish
  */
 
@@ -40,6 +40,18 @@ function clickpublish_get_user_query_args( $query_type = 'attendees' ) {
   $args = [];
 
   switch ( $query_type ) {
+    case 'accomplished':
+      $args = [
+        'meta_query'  => [
+          [
+            'key'     => 'clickpublish_challenge_last_accomplished',
+            'compare' => '<=',
+            'value'   => wp_date( 'Y-m-d H:i:s' ),
+            'type'    => 'DATETIME',
+          ],
+        ],
+      ];
+      break;
     default: // attendees
       $args = [
         'meta_query'  => [
