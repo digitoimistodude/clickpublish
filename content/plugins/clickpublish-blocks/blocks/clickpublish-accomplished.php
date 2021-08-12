@@ -77,12 +77,7 @@ function clickpublish_accomplished_block_render( $block_attributes, $content ) {
     $posts_count = count( clickpublish_get_user_challenge_posts( $user->ID ) );
     if ( 0 === $posts_count ) {
       continue;
-    }
-
-    $description = get_user_meta( $user->ID, 'description', true );
-    $cadence = get_user_meta( $user->ID, 'clickpublish_cadence', true );
-    $latestpost = clickpublish_get_user_challenge_posts( $user->ID, 1 );
-    ?>
+    } ?>
     <div class="user">
 
       <a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>">
@@ -94,24 +89,6 @@ function clickpublish_accomplished_block_render( $block_attributes, $content ) {
           <?php echo esc_html( $user->display_name ); ?>
         </a>
       </h3>
-
-      <?php if ( ! empty( $description ) ) : ?>
-        <p><?php echo esc_html( $description ); ?></p>
-      <?php endif; ?>
-
-      <p>
-        <span class="progress"><?php echo absint( $posts_count ) ?> of 30 <?php echo esc_html( $cadence ); ?> posts</span>.
-
-        <?php if ( ! empty( $latestpost ) ) : ?>
-          Latest is
-          <a href="<?php echo esc_url( get_the_permalink( $latestpost[0]['ID'] ) ); ?>">
-          <?php echo esc_html( $latestpost[0]['post_title'] ); ?></a>
-
-          <span class="published">
-            <?php echo esc_html( wp_date( 'Y-m-d', strtotime( $latestpost[0]['post_date'] ) ) ); ?>
-          </span>
-        <?php endif; ?>
-      </p>
 
     </div>
   <?php endforeach;
