@@ -69,18 +69,18 @@ function clickpublish_newsletter_block_render( $block_attributes, $content ) {
   ];
   ob_start(); ?>
 
-  <div id="#newsletter">
+  <div id="newsletter">
     <?php if ( isset( $_GET['newsletter'] ) && array_key_exists( $_GET['newsletter'], $newsletter_status_messages ) ) : ?>
       <div class="message">
         <?php echo wp_kses_post( wpautop( $newsletter_status_messages[ $_GET['newsletter'] ] ) ); ?>
       </div>
     <?php else : ?>
       <form action="<?php echo esc_url( home_url() ); ?>#newsletter" method="GET">
-         <label for="clickpublish-email">Email address</label>
-        <input id="clickpublish-email" type="email" name="email">
-        <input type="submit" value="Subscribe">
+        <label for="clickpublish-email" class="sr-hidden">Email address</label>
+        <input id="clickpublish-email" type="email" name="email" placeholder="Email address"><input type="submit" value="Subscribe">
         <?php wp_nonce_field( 'subscribe', 'clickpublish_newsletter' ); ?>
       </form>
+      <p><small>We will create a user account for you, but know only your email address. No spam, promise.</small></p>
     <?php endif; ?>
   </div>
 

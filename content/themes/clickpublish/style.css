@@ -61,6 +61,18 @@ span.published {
   font-style: italic;
 }
 
+.sr-hidden {
+  border: 0;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip; rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 /**
  * Block: clickpublish-attendees
  */
@@ -102,6 +114,41 @@ span.published {
 .clickpublish-users .user h3 > a:focus,
 .clickpublish-users .user h3 > a:active {
   text-decoration: underline;
+}
+
+/**
+ * Block: clickpublish-newsletter
+ */
+#newsletter form label,
+#newsletter form input:not([type="submit"]) {
+  width: 500px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#newsletter form input[type="submit"] {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+@media screen and ( max-width: 920px ) {
+  #newsletter form label,
+  #newsletter form input {
+    display: block;
+    width: 325px;
+    border-radius: 5px;
+  }
+}
+
+#newsletter .message {
+  display: inline-block;
+  border: 1px solid #767676;
+  border-radius: 3px;
+  padding: 0 15px;
+}
+
+#newsletter .message p {
+  margin: 15px 0;
 }
 
 /**
