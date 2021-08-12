@@ -6,7 +6,7 @@
  * @Author: Timi Wahalahti
  * @Date:   2021-08-05 00:37:15
  * @Last Modified by:   Timi Wahalahti
- * @Last Modified time: 2021-08-13 00:23:45
+ * @Last Modified time: 2021-08-13 00:24:19
  *
  * @package clickpublish
  */
@@ -101,7 +101,7 @@ function check_active_attendees() {
     // If user has done good job with publishing, send some occasional boost
     $last_email_sent = get_user_meta( $user->ID, 'clickpublish_emails_last_sent', true );
     if ( empty( $last_email_sent ) || strtotime( $last_email_sent ) > strtotime( '-' . $cadence_thresholds[ $cadence ]['boost'] ) ) {
-      do_action( 'clickpublish_send_email', 'boost', $user, $cadence );
+      //do_action( 'clickpublish_send_email', 'boost', $user, $cadence );
       continue;
     }
   }
