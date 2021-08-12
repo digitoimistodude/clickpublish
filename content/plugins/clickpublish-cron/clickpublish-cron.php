@@ -6,7 +6,7 @@
  * @Author: Timi Wahalahti
  * @Date:   2021-08-05 00:37:15
  * @Last Modified by:   Timi Wahalahti
- * @Last Modified time: 2021-08-05 21:55:08
+ * @Last Modified time: 2021-08-11 19:51:10
  *
  * @package clickpublish
  */
@@ -75,7 +75,7 @@ function check_active_attendees() {
     $cadence = get_user_meta( $user->ID, 'clickpublish_cadence', true );
     $latestpost = clickpublish_get_user_challenge_posts( $user->ID );
 
-    if ( 5 === count( $latestpost ) ) {
+    if ( 30 === count( $latestpost ) ) {
       do_action( 'clickpublish_user_accomplished_challenge', $user );
       continue;
     }

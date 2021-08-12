@@ -6,7 +6,7 @@
  * @Author: Timi Wahalahti
  * @Date:   2021-08-03 22:34:05
  * @Last Modified by:   Timi Wahalahti
- * @Last Modified time: 2021-08-11 19:06:49
+ * @Last Modified time: 2021-08-12 20:32:06
  *
  * @package clickpublish
  */
@@ -74,6 +74,13 @@ function user_profile_edit_add_fields() {
     'id'            => 'feeds_metabox',
     'title'         => __( 'Feeds', 'clickpublish' ),
     'object_types'  => [ 'user' ],
+  ] );
+
+  $cmb->add_field( [
+    'name' => 'Weekly newsletter',
+    'desc' => 'Send me a list of posts published by Click Publish attendees',
+    'id'   => 'clickpublish_newsletter',
+    'type' => 'checkbox',
   ] );
 
   $cadence_readonly = false;

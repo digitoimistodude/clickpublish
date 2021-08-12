@@ -6,7 +6,7 @@
  * @Author: Timi Wahalahti
  * @Date:   2021-08-03 21:17:13
  * @Last Modified by:   Timi Wahalahti
- * @Last Modified time: 2021-08-05 18:15:03
+ * @Last Modified time: 2021-08-12 20:45:34
  */
 
 namespace Clickpublish_Feeds_Fetcher;
@@ -72,12 +72,8 @@ function fetch_user_feeds( $user_id, $first_fetch = false ) {
       continue;
     }
 
-    // We want only the latest items, so speed up the handling by limiting amount of items after first fetch.
-    if ( $first_fetch ) {
-      $maxitems = $rss->get_item_quantity( 21 );
-    } else {
-      $maxitems = $rss->get_item_quantity( 5 );
-    }
+    // We want only the latest items, so speed up the handling by limiting amount of items.
+    $maxitems = $rss->get_item_quantity( 5 );
 
     $items = $rss->get_items( 0, $maxitems );
 
