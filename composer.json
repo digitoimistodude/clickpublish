@@ -65,7 +65,7 @@
     "wpackagist-plugin/autodescription": "*",
     "wpackagist-plugin/gravity-forms-wcag-20-form-fields": "*",
     "wpackagist-plugin/cmb2": "*",
-    "wpackagist-plugin/user-swithing": "*",
+    "wpackagist-plugin/user-switching": "*",
     "wpackagist-plugin/magic-login": "*",
     "wpackagist-plugin/user-menus": "*"
   },
