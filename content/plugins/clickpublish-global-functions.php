@@ -6,7 +6,7 @@
  * @Author: Timi Wahalahti
  * @Date:   2021-08-05 20:40:21
  * @Last Modified by:   Timi Wahalahti
- * @Last Modified time: 2021-08-12 22:16:06
+ * @Last Modified time: 2021-08-12 23:25:56
  * @package clickpublish
  */
 
@@ -57,11 +57,9 @@ function clickpublish_get_user_query_args( $query_type = 'attendees' ) {
         'meta_query'  => [
           [
             'key'     => 'clickpublish_feed_urls',
-            'compare' => 'EXISTS',
           ],
           [
             'key'     => 'clickpublish_challenge_last_started',
-            'compare' => 'EXISTS',
           ],
           [
             'key'     => 'clickpublish_challenge_last_accomplished',

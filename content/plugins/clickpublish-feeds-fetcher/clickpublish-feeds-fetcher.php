@@ -6,7 +6,7 @@
  * @Author: Timi Wahalahti
  * @Date:   2021-08-03 21:17:13
  * @Last Modified by:   Timi Wahalahti
- * @Last Modified time: 2021-08-12 20:45:34
+ * @Last Modified time: 2021-08-12 23:23:00
  */
 
 namespace Clickpublish_Feeds_Fetcher;
@@ -78,6 +78,13 @@ function fetch_user_feeds( $user_id, $first_fetch = false ) {
     $items = $rss->get_items( 0, $maxitems );
 
     foreach ( $items as $item ) {
+      // If user gets 30 posts duing this fetch, accomplish the challenge
+      $latestpost = clickpublish_get_user_challenge_posts( $user_id );
+      if ( 30 === count( $latestpost ) ) {
+        do_action( 'clickpublish_user_accomplished_challenge', get_user_by( 'ID', $user_id ) );
+        return;
+      }
+
       save_item( $item, $user_id, $feed );
     }
   }
