@@ -6,7 +6,7 @@
  * @Author: Timi Wahalahti
  * @Date:   2021-08-05 00:37:15
  * @Last Modified by:   Timi Wahalahti
- * @Last Modified time: 2021-08-11 19:51:10
+ * @Last Modified time: 2021-08-13 00:23:45
  *
  * @package clickpublish
  */
@@ -56,13 +56,13 @@ function check_active_attendees() {
   $cadence_thresholds = [
     'daily'   => [
       'reminder'  => '1 week', // since last post
+      'boost'     => '1 week', // since last post
       'reset'     => '2 weeks', // since last post
-      'boost'     => '1 week', // since last email
     ],
     'weekly'  => [
       'reminder'  => '2 weeks', // since last post
-      'reset'     => '4 weeks', // since last post
-      'boost'     => '5 weeks', // since last email
+      'boost'     => '4 weeks', // since last post
+      'reset'     => '6 weeks', // since last post
     ],
   ];
 

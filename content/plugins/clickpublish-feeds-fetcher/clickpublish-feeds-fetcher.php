@@ -6,7 +6,7 @@
  * @Author: Timi Wahalahti
  * @Date:   2021-08-03 21:17:13
  * @Last Modified by:   Timi Wahalahti
- * @Last Modified time: 2021-08-12 23:50:25
+ * @Last Modified time: 2021-08-12 23:51:36
  */
 
 namespace Clickpublish_Feeds_Fetcher;
