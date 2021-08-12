@@ -20,8 +20,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Disable some things on dashboard and user profiles
 add_filter( 'admin_footer_text', '__return_empty_string', 11 );
 add_filter( 'update_footer', '__return_empty_string', 11 );
-add_filter( 'wp_is_application_passwords_available', '__return_false' );
 remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+
+add_filter( 'wp_is_application_passwords_available_for_user', __NAMESPACE__ . '\maybe_disable_application_passwords', 10, 2 );
+function maybe_disable_application_passwords( $available, $user ) {
+  if ( ! in_array( 'administrator', (array) $user->roles ) ) {
+    $available = false;
+  }
+
+  return $available;
+} // end maybe_disable_application_passwords
 
 // Force subscribers to profile edit view
 add_action( 'current_screen', __NAMESPACE__ . '\maybe_redirect_dashboard_to_profile_edit' );
