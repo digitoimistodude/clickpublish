@@ -1,5 +1,5 @@
 set :application, "clickpublish"
-set :repo_url,  "git@github.com:timiwahalaht/clickpublish.git"
+set :repo_url,  "git@github.com:timiwahalahti/clickpublish.git"
 set :branch, :main
 set :log_level, :debug
 set :linked_files, %w{.env}
