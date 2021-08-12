@@ -6,7 +6,7 @@
  * @Author: Timi Wahalahti
  * @Date:   2021-08-03 21:17:13
  * @Last Modified by:   Timi Wahalahti
- * @Last Modified time: 2021-08-12 23:23:00
+ * @Last Modified time: 2021-08-12 23:50:25
  */
 
 namespace Clickpublish_Feeds_Fetcher;
@@ -99,7 +99,7 @@ function save_item( $item, $user_id, $feed ) {
 
   // Skip saving if post is published before challenge started.
   $user_challenge_started = get_user_meta( $user_id, 'clickpublish_challenge_last_started', true );
-  if ( strtotime( $item->get_date( 'Y-m-d H:i:s' ) ) < strtotime( $user_challenge_started ) ) {
+  if ( strtotime( $item->get_date( 'Y-m-d 00:00:00' ) ) < strtotime( $user_challenge_started ) ) {
     return;
   }
 
